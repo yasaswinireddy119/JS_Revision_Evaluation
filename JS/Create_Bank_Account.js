@@ -10,9 +10,26 @@ function createBankAccount(){
             transcations.push({type:"deposite",amount})
             return `Deposited ${amount}`
         }
-        deposit(amount){
-            if (amount <= 0){
-                return "Depositive amount not valid or it must be positive"
+        withdraw(amount){
+            if (withdraw <= 0){
+                return "withdraw amount not valid or it must be positive"
             }
+            if(amount > balance){
+                return "Insufficient balance"
+            }
+
+            balance -= amount;
+            transcations.push({type:"withdraw",amount});
+            return `withdraw $amount`
+            
+
     }
+    getBalance(){
+        return balance
+    }
+    getTransactions(){
+        return transcations
+
+    }
+}
 }
